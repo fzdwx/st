@@ -125,7 +125,7 @@ static const char *colorname[] = {
 	"#fb4934",
 	"#a277ff", /* ls -> exec file */
 	"#fabd2f",
-	"#83a598",
+	"#56cc9f", /* dir */
 	"#d3869b",
 	"#8ec07c",
 	"#ebdbb2",
