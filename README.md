@@ -1,7 +1,7 @@
 # st
 
 ```shell
-git clone https://github.com/LukeSmithxyz/st
+git clone https://github.com/fzdwx/st
 cd st
 sudo make install
 ```
