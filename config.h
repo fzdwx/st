@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "mono:pixelsize=12:antialias=true:autohint=true";
+static char *font = "Maple mono:pixelsize=16:antialias=true:autohint=true";
 static char *font2[] = { "NotoColorEmoji:pixelsize=10:antialias=true:autohint=true" };
 static int borderpx = 2;
 
@@ -113,17 +113,17 @@ float alphaUnfocus;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-	"#282828", /* hard contrast: #1d2021 / soft contrast: #32302f */
-	"#cc241d",
-	"#98971a",
-	"#d79921",
-	"#458588",
-	"#b16286",
+	"#edecee", /* hard contrast: #1d2021 / soft contrast: #32302f */
+	"#cc241d", /* bad exec */
+	"#61ffca", /* good exec */
+	"#ffca85",
+	"#a277ff", /* prompt */
+	"#e3a8e1",
 	"#689d6a",
-	"#a89984",
+	"#94fa36",
 	"#928374",
 	"#fb4934",
-	"#b8bb26",
+	"#a277ff", /* ls -> exec file */
 	"#fabd2f",
 	"#83a598",
 	"#d3869b",
@@ -133,8 +133,8 @@ static const char *colorname[] = {
 	/* more colors can be added after 255 to use with DefaultXX */
 	"#add8e6", /* 256 -> cursor */
 	"#555555", /* 257 -> rev cursor*/
-	"#282828", /* 258 -> bg */
-	"#ebdbb2", /* 259 -> fg */
+	"#15141b", /* 258 -> bg */
+	"#edecee", /* 259 -> fg */
 };
 
 
@@ -272,7 +272,7 @@ static Shortcut shortcuts[] = {
 	{ MODKEY,               XK_Down,        kscrolldown,    {.i =  1} },
 	{ MODKEY,               XK_u,           kscrollup,      {.i = -1} },
 	{ MODKEY,               XK_d,           kscrolldown,    {.i = -1} },
-	{ MODKEY,		XK_s,		changealpha,	{.f = -0.05} },
+	{ MODKEY,		XK_x,		changealpha,	{.f = -0.05} },
 	{ MODKEY,		XK_a,		changealpha,	{.f = +0.05} },
 	{ TERMMOD,              XK_Up,          zoom,           {.f = +1} },
 	{ TERMMOD,              XK_Down,        zoom,           {.f = -1} },
