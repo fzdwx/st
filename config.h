@@ -241,10 +241,23 @@ static MouseShortcut mshortcuts[] = {
 /* Internal keyboard shortcuts. */
 #define MODKEY Mod1Mask
 #define TERMMOD (Mod1Mask|ShiftMask)
+#define CTRLSHIFT (ControlMask|ShiftMask)
 
 static char *openurlcmd[] = { "/bin/sh", "-c", "st-urlhandler -o", "externalpipe", NULL };
 static char *copyurlcmd[] = { "/bin/sh", "-c", "st-urlhandler -c", "externalpipe", NULL };
 static char *copyoutput[] = { "/bin/sh", "-c", "st-copyout", "externalpipe", NULL };
+static char *sp[] =         { "/bin/sh", "-c", "tmux split-window","externalpipe", NULL };
+static char *sph[] =        { "/bin/sh", "-c", "tmux split-window -h","externalpipe", NULL };
+
+static char *gd[] =        { "/bin/sh", "-c", "tmux select-pane -D","externalpipe", NULL };
+static char *gu[] =        { "/bin/sh", "-c", "tmux select-pane -U","externalpipe", NULL };
+static char *gr[] =        { "/bin/sh", "-c", "tmux select-pane -R","externalpipe", NULL };
+static char *gl[] =        { "/bin/sh", "-c", "tmux select-pane -L","externalpipe", NULL };
+
+static char *rd[] =        { "/bin/sh", "-c", "tmux resize-pane -D 2","externalpipe", NULL };
+static char *ru[] =        { "/bin/sh", "-c", "tmux resize-pane -U 2","externalpipe", NULL };
+static char *rr[] =        { "/bin/sh", "-c", "tmux resize-pane -R 2","externalpipe", NULL };
+static char *rl[] =        { "/bin/sh", "-c", "tmux resize-pane -L 2","externalpipe", NULL };
 
 static Shortcut shortcuts[] = {
 	/* mask                 keysym          function        argument */
@@ -268,8 +281,6 @@ static Shortcut shortcuts[] = {
 	{ MODKEY,               XK_Page_Down,   kscrolldown,    {.i = -1} },
 	{ MODKEY,               XK_k,           kscrollup,      {.i =  1} },
 	{ MODKEY,               XK_j,           kscrolldown,    {.i =  1} },
-	{ MODKEY,               XK_Up,          kscrollup,      {.i =  1} },
-	{ MODKEY,               XK_Down,        kscrolldown,    {.i =  1} },
 	{ MODKEY,               XK_u,           kscrollup,      {.i = -1} },
 	{ MODKEY,               XK_d,           kscrolldown,    {.i = -1} },
 	{ MODKEY,		XK_x,		changealpha,	{.f = -0.05} },
@@ -283,6 +294,18 @@ static Shortcut shortcuts[] = {
 	{ MODKEY,               XK_l,           externalpipe,   {.v = openurlcmd } },
 	{ MODKEY,               XK_y,           externalpipe,   {.v = copyurlcmd } },
 	{ MODKEY,               XK_o,           externalpipe,   {.v = copyoutput } },
+	{ ControlMask,          XK_minus,       externalpipe,   {.v = sp } },
+	{ ControlMask,          XK_backslash,   externalpipe,   {.v = sph } },
+
+	{ MODKEY,               XK_Up,          externalpipe,    {.v =  gu} },
+    { MODKEY,               XK_Down,        externalpipe,    {.v =  gd} },
+    { MODKEY,               XK_Left,        externalpipe,    {.v =  gl} },
+    { MODKEY,               XK_Right,       externalpipe,    {.v =  gr} },
+
+    { ControlMask,               XK_Up,          externalpipe,    {.v =  ru} },
+    { ControlMask,               XK_Down,        externalpipe,    {.v =  rd} },
+    { ControlMask,               XK_Left,        externalpipe,    {.v =  rl} },
+    { ControlMask,               XK_Right,       externalpipe,    {.v =  rr} },
 };
 
 /*
